@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Vayu Motors and the Swap Station Gamble: The Short Version</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;800&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#F3FFF9;--surf:#fff;--ink:#0E2A47;--mute:#4B6178;--green:#00B386;--gtxt:#007A5A;--amber:#FFB81C;--coral:#E8484D;--sky:#2D8CE8;--line:#CDE8DD;--hero:#00C48C;--navy:#0E2A47;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#08161F;--surf:#10262F;--ink:#EAF6F1;--mute:#A3BBC8;--gtxt:#4EE0B5;--line:#21404D;--coral:#FF7075;--sky:#6DB4FF}}
+:root[data-theme="dark"]{--bg:#08161F;--surf:#10262F;--ink:#EAF6F1;--mute:#A3BBC8;--gtxt:#4EE0B5;--line:#21404D;--coral:#FF7075;--sky:#6DB4FF}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:calc(env(safe-area-inset-top,0px) + 64px)}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 17px/1.6 "DM Sans",system-ui,sans-serif}
+h1,h2,h3{font-family:"Bricolage Grotesque","DM Sans",system-ui,sans-serif;line-height:1.1;margin:0}
+h2{font-size:clamp(28px,5vw,44px);font-weight:800;margin-bottom:10px}
+h3{font-size:21px;font-weight:600}
+p{margin:0 0 12px;max-width:62ch}
+.wrap{max-width:1060px;margin:0 auto;padding:0 20px}
+section{padding:72px 0}
+.lead{color:var(--mute);font-size:19px;margin-bottom:28px}
+#bar{position:fixed;top:0;left:0;height:4px;width:0;background:var(--amber);z-index:50}
+nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:40;background:var(--bg);border-bottom:1px solid var(--line)}
+nav .wrap{display:flex;align-items:center;gap:18px;height:54px;overflow-x:auto;white-space:nowrap}
+nav b{font-family:"Bricolage Grotesque",sans-serif;font-weight:800;color:var(--gtxt)}
+nav a{color:var(--mute);text-decoration:none;font-size:15px;font-weight:500}
+nav a:hover{color:var(--ink)}
+.hero{background:var(--hero);color:var(--navy);padding:64px 0 72px}
+.hero h1{font-size:clamp(40px,8vw,84px);font-weight:800;max-width:14ch;letter-spacing:-.02em}
+.hero p{font-size:20px;margin-top:18px;max-width:46ch}
+.pick{display:inline-block;margin-top:20px;background:var(--navy);color:#fff;padding:10px 18px;border-radius:99px;font-weight:700;font-size:16px}
+.batt{margin-top:40px;background:var(--navy);border-radius:22px;padding:22px;color:#fff}
+.batt svg{width:100%;height:auto;display:block}
+.seg{fill:none;stroke:#3F6B86;stroke-width:1.5;rx:3}
+.seg.on{fill:#00E0A1;stroke:#00E0A1;opacity:0;animation:lit .35s forwards}
+.seg.half{fill:#00E0A1;stroke:#00E0A1;opacity:0;animation:lit .35s forwards}
+@keyframes lit{to{opacity:1}}
+.batt p{margin:14px 0 0;font-size:16px;color:#CFE6F2}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin:8px 0 30px}
+.stat{background:var(--surf);border:2px solid var(--line);border-radius:18px;padding:18px;text-align:center}
+.stat strong{display:block;font:800 40px "Bricolage Grotesque",sans-serif;color:var(--gtxt)}
+.stat span{color:var(--mute);font-size:15px}
+.stat:nth-child(2){border-color:var(--amber)}.stat:nth-child(3){border-color:var(--sky)}.stat:nth-child(4){border-color:var(--coral)}
+.track{background:var(--surf);border:2px solid var(--line);border-radius:18px;padding:22px;margin-bottom:30px}
+.rail{position:relative;height:30px;background:var(--line);border-radius:99px;overflow:hidden;margin:14px 0 8px}
+.fill{height:100%;width:0;background:var(--green);border-radius:99px;transition:width 1.4s cubic-bezier(.2,.8,.2,1)}
+.in .fill{width:var(--w)}
+.marks{display:flex;justify-content:space-between;font-size:14px;color:var(--mute)}
+.cast{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:12px}
+.who{display:flex;gap:14px;align-items:flex-start;background:var(--surf);border:1px solid var(--line);border-radius:16px;padding:14px}
+.av{flex:none;width:46px;height:46px;border-radius:50%;display:grid;place-items:center;font:800 19px "Bricolage Grotesque",sans-serif;color:#0E2A47}
+.who p{margin:0;font-size:15px;color:var(--mute)}.who b{color:var(--ink)}
+.quad{background:var(--surf);border:2px solid var(--line);border-radius:22px;padding:16px;margin-bottom:24px}
+.quad svg{width:100%;height:auto;display:block}
+.quad text{fill:var(--mute);font:500 12px "DM Sans",sans-serif}
+.quad .dl{fill:#0E2A47;font:800 16px "Bricolage Grotesque",sans-serif}
+.grid4{display:grid;grid-template-columns:repeat(auto-fit,minmax(235px,1fr));gap:16px}
+.opt{background:var(--surf);border:2px solid var(--line);border-radius:20px;padding:20px;position:relative;transition:transform .2s}
+.opt:hover{transform:translateY(-4px)}
+.opt .l{width:42px;height:42px;border-radius:12px;display:grid;place-items:center;font:800 22px "Bricolage Grotesque",sans-serif;color:#0E2A47;margin-bottom:10px}
+.opt.a{border-color:var(--green);border-width:3px}
+.badge{position:absolute;top:-13px;right:14px;background:var(--green);color:#04271D;font-weight:700;font-size:13px;padding:4px 12px;border-radius:99px}
+.opt p{font-size:15.5px;margin-bottom:8px}
+.tag{font-size:14px;font-weight:700}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:20px}
+.box{background:var(--surf);border-radius:20px;padding:22px;border:2px solid var(--line)}
+.box ul{margin:10px 0 0;padding-left:20px}.box li{margin-bottom:8px}
+.cost{border-color:var(--coral)}.buy{border-color:var(--green)}
+.fw{display:grid;gap:12px}
+details{background:var(--surf);border:2px solid var(--line);border-radius:18px;padding:0 20px;transition:border-color .2s}
+details[open]{border-color:var(--green)}
+summary{cursor:pointer;list-style:none;padding:18px 0;display:flex;gap:14px;align-items:center;font:600 20px "Bricolage Grotesque",sans-serif}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";margin-left:auto;font-size:28px;color:var(--gtxt);transition:transform .25s}
+details[open] summary::after{transform:rotate(45deg)}
+summary small{display:block;font:400 14px "DM Sans",sans-serif;color:var(--mute)}
+.ic{flex:none;font-size:26px}
+details div{padding:0 0 18px 42px}
+details div p{margin-bottom:8px}
+.dark{background:var(--navy);color:#fff}
+.dark .lead{color:#B7D0DE}
+.dark h2{color:#fff}
+.reveal{background:var(--amber);color:#0E2A47;border:0;font:700 17px "DM Sans",sans-serif;padding:14px 24px;border-radius:99px;cursor:pointer;margin-bottom:22px}
+.reveal:focus-visible,.tabs button:focus-visible,summary:focus-visible{outline:3px solid var(--sky);outline-offset:3px}
+.know{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.col{border-radius:18px;padding:20px}
+.col.k{background:#14405A}.col.u{background:#4A1D2B;display:none}
+.show .col.u{display:block;animation:pop .5s}
+.show .col.k{grid-column:auto}
+.know:not(.show){grid-template-columns:1fr}
+@keyframes pop{from{opacity:0;transform:scale(.96)}to{opacity:1;transform:none}}
+.col li{margin-bottom:10px}.col ul{padding-left:20px;margin:8px 0 0}
+.tabs{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:18px}
+.tabs button{border:2px solid var(--line);background:var(--surf);color:var(--ink);font:700 16px "DM Sans",sans-serif;padding:11px 20px;border-radius:99px;cursor:pointer;transition:all .2s}
+.tabs button[aria-selected="true"]{background:var(--green);border-color:var(--green);color:#04271D}
+.panel{display:none;background:var(--surf);border:2px solid var(--line);border-radius:22px;padding:26px}
+.panel.on{display:block;animation:pop .35s}
+.panel h3{margin-bottom:12px}
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;margin-top:14px}
+.st{background:var(--bg);border-radius:14px;padding:14px;font-size:15px}.st b{display:block;color:var(--gtxt);margin-bottom:4px}
+.risks{display:grid;gap:10px;margin-top:6px}
+.rk{display:flex;gap:12px;align-items:center;flex-wrap:wrap;background:var(--surf);border:1px solid var(--line);border-radius:14px;padding:14px 16px}
+.rk span{flex:1 1 280px}
+.chip{font-size:13px;font-weight:700;padding:4px 12px;border-radius:99px;color:#0E2A47}
+.hi{background:#FF8A8E}.md{background:var(--amber)}.lo{background:#7BE0B8}
+.ask{background:var(--hero);color:#0E2A47;border-radius:22px;padding:28px;margin-top:20px}
+.ask p{font-size:19px;font-weight:500}
+.big{font:800 clamp(30px,5vw,52px) "Bricolage Grotesque",sans-serif;line-height:1.05;margin:44px 0 0;color:var(--hero)}
+footer{padding:36px 0;color:var(--mute);font-size:15px;border-top:1px solid var(--line)}
+@media (max-width:760px){.stats{grid-template-columns:1fr 1fr}.two,.know{grid-template-columns:1fr}section{padding:54px 0}details div{padding-left:0}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.seg.on,.seg.half{opacity:1}.fill{width:var(--w)}}
+</style>
+</head>
+<body>
+<div id="bar"></div>
+<nav><div class="wrap"><b>Vayu Swap</b><a href="#story">The story</a><a href="#roads">Four roads</a><a href="#why">Our pick</a><a href="#frames">Why it holds up</a><a href="#blind">Blind spot</a><a href="#qs">4 questions</a><a href="#plan">Plan</a></div></nav>
+
+<header class="hero"><div class="wrap">
+<h1>Vayu Motors and the Swap Station Gamble</h1>
+<p>One founder, ten weeks, and four ways to find ₹15 crore. Here is the whole case and our answer, in a few minutes.</p>
+<span class="pick">⚡ Our pick: Option A, the NordGreen round</span>
+<div class="batt">
+<svg viewBox="0 0 360 80" role="img" aria-label="Battery showing 45 of 150 stations built"><rect x="2" y="6" width="340" height="68" rx="12" fill="none" stroke="#6FA3BF" stroke-width="3"/><rect x="344" y="26" width="12" height="28" rx="4" fill="#6FA3BF"/><g id="segs"></g></svg>
+<p><b>45 of 150 stations are live.</b> Each block is 10 stations. The rest has to be built in 10 weeks.</p>
+</div></div></header>
+
+<section id="story"><div class="wrap">
+<h2>The story in short</h2>
+<p class="lead">Meera Iyer runs Vayu Swap, a battery swap unit inside scooter maker Vayu Motors. Jitan Foods, a huge delivery fleet, will give a three year exclusive deal to whoever has 150 stations live before the pre-monsoon rush. Meera has 45. A richer rival is also in the race.</p>
+<div class="stats"><div class="stat"><strong>₹15 Cr</strong><span>she needs, and does not have</span></div><div class="stat"><strong>150</strong><span>stations required</span></div><div class="stat"><strong>3</strong><span>cities: Bengaluru, Pune, Hyderabad</span></div><div class="stat"><strong>10</strong><span>weeks on the clock</span></div></div>
+<div class="track reveal-in"><h3>Where she stands today</h3>
+<div class="rail"><div class="fill" style="--w:30%"></div></div>
+<div class="marks"><span>0</span><span>45 live (30%)</span><span>150</span></div></div>
+<h3 style="margin-bottom:14px">The people in the room</h3>
+<div class="cast">
+<div class="who"><div class="av" style="background:#00E0A1">M</div><p><b>Meera Iyer.</b> Runs Vayu Swap. Has to decide in one week.</p></div>
+<div class="who"><div class="av" style="background:#FFB81C">A</div><p><b>Arjun Mehta.</b> Founder and chairman. Must sign off on anything above ₹2 Cr.</p></div>
+<div class="who"><div class="av" style="background:#FF8A8E">R</div><p><b>Rohan Kapoor.</b> VP Sales. Wants cheap second-life batteries.</p></div>
+<div class="who"><div class="av" style="background:#9CCBFF">Y</div><p><b>Yogesh Chawla.</b> Financier. Fast cash, with strings.</p></div>
+<div class="who"><div class="av" style="background:#B8F0DA">L</div><p><b>Lukas Berg.</b> NordGreen Capital. Patient money, strict audit.</p></div>
+<div class="who"><div class="av" style="background:#E3C8FF">D</div><p><b>Divya Krishnan.</b> Quality and compliance. Already warned about fire risk.</p></div>
+</div></div></section>
+
+<section id="roads" style="background:var(--surf)"><div class="wrap">
+<h2>Four roads, one map</h2>
+<p class="lead">Every option buys something and costs something. This chart shows the trade at a glance: how fast you get there, and how clean the route is.</p>
+<div class="quad"><svg viewBox="0 0 420 300" role="img" aria-label="Chart of speed versus cleanliness for options A to D">
+<rect x="40" y="10" width="185" height="130" fill="#00B38622"/><rect x="225" y="140" width="185" height="130" fill="#E8484D22"/>
+<line x1="40" y1="270" x2="410" y2="270" stroke="#7A93A5"/><line x1="40" y1="10" x2="40" y2="270" stroke="#7A93A5"/>
+<line x1="225" y1="10" x2="225" y2="270" stroke="#7A93A5" stroke-dasharray="4"/><line x1="40" y1="140" x2="410" y2="140" stroke="#7A93A5" stroke-dasharray="4"/>
+<text x="225" y="289" text-anchor="middle">Slower  ←  speed to the deadline  →  Faster</text>
+<text transform="translate(14 140) rotate(-90)" text-anchor="middle">Risky  ←  how clean  →  Clean</text>
+<text x="48" y="28">Clean but slow</text><text x="402" y="262" text-anchor="end">Fast but risky</text>
+<g class="dl"><circle cx="95" cy="55" r="22" fill="#00E0A1"/><text class="dl" x="95" y="61" text-anchor="middle">A</text>
+<circle cx="320" cy="150" r="22" fill="#FFB81C"/><text class="dl" x="320" y="156" text-anchor="middle">B</text>
+<circle cx="365" cy="225" r="22" fill="#FF8A8E"/><text class="dl" x="365" y="231" text-anchor="middle">C</text>
+<circle cx="150" cy="200" r="22" fill="#9CCBFF"/><text class="dl" x="150" y="206" text-anchor="middle">D</text></g></svg></div>
+<div class="grid4">
+<div class="opt a"><span class="badge">Our pick</span><div class="l" style="background:#00E0A1">A</div><h3>NordGreen round</h3><p>₹15 Cr for 12% of Vayu Swap. In return, a 90 day technical and ESG audit.</p><p class="tag" style="color:var(--gtxt)">Cleanest. Likely misses the deadline.</p></div>
+<div class="opt"><div class="l" style="background:#FFB81C">B</div><h3>Chawla Capital</h3><p>₹15 Cr in a week, as debt plus a revenue share. The station lease must go through his firm, 18% above market.</p><p class="tag" style="color:#B77900">Fast. Hidden strings.</p></div>
+<div class="opt"><div class="l" style="background:#FF8A8E">C</div><h3>Rohan's shortcut</h3><p>Sell used battery cells as new for about 60% of stations. Cuts cost by around 40%.</p><p class="tag" style="color:var(--coral)">Real fire risk. Echoes Arjun's 2017 shortcut.</p></div>
+<div class="opt"><div class="l" style="background:#9CCBFF">D</div><h3>Subsidy sprint</h3><p>Build only 30 safe stations, then push swap counts so the network looks 3 times bigger.</p><p class="tag" style="color:var(--sky)">Legal on paper. Misleading in practice.</p></div>
+</div></div></section>
+
+<section id="why"><div class="wrap">
+<h2>Why we picked Option A</h2>
+<p class="lead">It is the only road with an outsider checking the work, and the only one nobody has to hide later. We know it likely costs us the first deadline, and we plan for that.</p>
+<div class="two">
+<div class="box cost"><h3>What it costs</h3><ul><li>Almost certainly misses the 10 week window.</li><li>Meera must renegotiate with Jitan Foods. No guarantee they agree.</li><li>90 days of audit prep and scrutiny.</li><li>A rival could sign Jitan in the meantime.</li></ul></div>
+<div class="box buy"><h3>What it buys</h3><ul><li>A clean cap table with no side deals.</li><li>A respected climate fund that opens doors for Series A.</li><li>Divya's sign-off, the only option that earns it.</li><li>A governance record that survives any future audit.</li></ul></div>
+</div></div></section>
+
+<section id="frames" style="background:var(--surf)"><div class="wrap">
+<h2>Why it holds up</h2>
+<p class="lead">We tested the decision with six lenses. Tap each one for the plain English version.</p>
+<div class="fw">
+<details><summary><span class="ic">🏢</span><span>Intrapreneurship<small>Pinchot and Burgelman</small></span></summary><div><p>Meera runs a startup inside a bigger company. That only works if the parent really lets go. Today, any decision above ₹2 Cr needs Arjun's personal yes.</p><p>With NordGreen on board, big calls need board disclosure, not one person's nod. It is the same lesson as Jony Ive at Apple from class: give people real resources and real independence, and they build big things.</p></div></details>
+<details><summary><span class="ic">🎭</span><span>Agency theory<small>Jensen and Meckling</small></span></summary><div><p>Rohan wants his sales numbers. Yogesh wants rent for his own firm. Arjun once kept secrets to survive. Each gains from their choice while someone else carries the risk.</p><p>Under B, C and D, we rely on trust. Under A, an outside audit replaces trust with process.</p></div></details>
+<details><summary><span class="ic">📡</span><span>Signalling theory<small>Capital stack</small></span></summary><div><p>Who funds you tells the next investor who you are. A respected climate fund says "audited and serious". A hidden related-party lease says "this team hides things", and investors find those quickly.</p></div></details>
+<details><summary><span class="ic">🌍</span><span>Stakeholder theory and triple bottom line<small>Freeman</small></span></summary><div><p><b>People:</b> riders stay safe and staff are not asked to cut corners. <b>Planet:</b> only full-cycle tested batteries enter circulation. <b>Profit:</b> slower now, but it keeps the Series A door open.</p><p>The stakeholder we hurt most is Jitan Foods, through timing. Not through safety.</p></div></details>
+<details><summary><span class="ic">🏜️</span><span>Valley of Death<small>Innovation cycle</small></span></summary><div><p>Vayu Swap has 45 stations and covers its costs, but cannot fund its own growth. That is the fragile middle stage. Hidden liabilities hurt most here, so patient and clean capital fits best.</p></div></details>
+<details><summary><span class="ic">⚖️</span><span>Ethics: duty over outcome<small>Deontological lens</small></span></summary><div><p>Honest labels and full disclosure are duties. They do not switch off because a deadline is close. We use this lens plainly, and we also show the business case on its own, so the choice does not rest on principle alone.</p></div></details>
+</div></div></section>
+
+<section id="blind" class="dark"><div class="wrap">
+<h2>The thing Meera cannot see</h2>
+<p class="lead">She admires Arjun. But he has two old secrets, and she knows neither. Tap to see the gap.</p>
+<button class="reveal" id="rv" aria-expanded="false">Show what she does not know</button>
+<div class="know" id="kn">
+<div class="col k"><h3>What Meera knows</h3><ul><li>Arjun gave her a real budget, a P&amp;L and eighteen months.</li><li>He likes speed over paperwork.</li><li>Rohan's plan sells refurbished cells as new.</li><li>She has one week to decide.</li></ul></div>
+<div class="col u"><h3>What she does not know</h3><ul><li>2017: cells were relabelled and certification fast-tracked without full tests.</li><li>2019: a loan against family property was kept from the co-founder and board.</li><li>Rohan's plan copies the 2017 move almost exactly.</li><li>The culture she works in has a history of trading integrity for survival.</li></ul></div>
+</div></div></section>
+
+<section id="qs"><div class="wrap">
+<h2>The four questions, answered</h2>
+<p class="lead">The brief asks every group the same four. Pick one.</p>
+<div class="tabs" role="tablist">
+<button role="tab" aria-selected="true" data-p="0">1. Signals</button><button role="tab" aria-selected="false" data-p="1">2. If 2017 leaks</button><button role="tab" aria-selected="false" data-p="2">3. Who we hurt</button><button role="tab" aria-selected="false" data-p="3">4. Biggest risk</button></div>
+<div class="panel on"><h3>What signal do we send, and how do we manage it for two years?</h3><p>We tell investors, staff and Jitan Foods the same thing: we pick credibility over speed.</p>
+<div class="steps"><div class="st"><b>Month 1</b>Meera meets Jitan's procurement lead in person with the term sheet and a phased plan.</div><div class="st"><b>Months 1 to 12</b>Publish quarterly rollout updates and rider safety data.</div><div class="st"><b>Month 3</b>Share the clean audit result with fleet buyers and the board.</div><div class="st"><b>Months 12 to 24</b>Use the track record as the base of the Series A data room.</div></div></div>
+<div class="panel"><h3>If Arjun's 2017 shortcut goes public the month we launch?</h3><p>Meera joined in 2020, so she had no part in it and no knowledge of it. The audit gives her a dated before and after: what she inherited and what she built.</p><p>She cooperates with an independent review of 2017, shares the clean audit with Jitan and the board, and does not defend or own what she did not do. Vayu Motors still takes a reputation hit. Her credibility holds.</p></div>
+<div class="panel"><h3>Who do we hurt most, and how do we protect them?</h3><p>Jitan Foods. They could lose their pre-monsoon window if the rival signs first. This is a timing harm, not a safety harm.</p>
+<div class="steps"><div class="st"><b>Within 48 hours</b>Meera calls their procurement lead, with the term sheet in hand.</div><div class="st"><b>Phased plan</b>45 stations now, 90 by week 7, 150 by week 12.</div><div class="st"><b>Penalty SLA</b>Vayu Swap pays if we run past week 12.</div><div class="st"><b>The pitch</b>Pick the partner that survives your next safety audit.</div></div></div>
+<div class="panel"><h3>The biggest risk we accept, and how we spot it in two quarters</h3><p>Lens: Valley of Death. Right capital at the wrong time can still strand a company. The risk is Jitan signing the rival before our audit ends.</p>
+<div class="steps"><div class="st"><b>Signal 1</b>Jitan announces a rival exclusive, any time before week 12.</div><div class="st"><b>Signal 2</b>Bengaluru station use falls under 60% by the end of quarter 2.</div><div class="st"><b>Signal 3</b>NordGreen adds audit conditions that push past day 75.</div></div><p style="margin-top:14px">If any signal fires: emergency board review, and consider a bridge loan that is fully disclosed to the board and NordGreen.</p></div>
+</div></section>
+
+<section id="plan" style="background:var(--surf)"><div class="wrap">
+<h2>The plan and the risks</h2>
+<p class="lead">The rollout we offer Jitan, then the four risks we watch.</p>
+<div class="track" id="rt"><h3>Promised rollout</h3>
+<div class="rail"><div class="fill" style="--w:100%;background:linear-gradient(90deg,#00B386 30%,#2D8CE8 30% 60%,#FFB81C 60%)"></div></div>
+<div class="marks"><span>Now: 45 live</span><span>Week 7: 90</span><span>Week 12: 150</span></div></div>
+<div class="risks">
+<div class="rk"><span>Jitan signs the rival before the audit closes. We use the phased plan, the penalty SLA and the trigger signals.</span><em class="chip hi">Likely</em><em class="chip hi">Critical</em></div>
+<div class="rk"><span>The audit finds old compliance gaps. Divya runs a readiness check before it starts.</span><em class="chip md">Medium</em><em class="chip hi">High impact</em></div>
+<div class="rk"><span>The audit runs long. We agree a day 75 milestone and keep a 15 day buffer in every client message.</span><em class="chip md">Medium</em><em class="chip lo">Moderate</em></div>
+<div class="rk"><span>Rohan or Arjun push to switch to Option C. A board vote locks the decision and Meera keeps written records.</span><em class="chip md">Medium</em><em class="chip hi">High impact</em></div>
+</div>
+<div class="ask"><h3 style="margin-bottom:8px">The ask to the board</h3><p>Approve exclusivity with NordGreen Capital for ₹15 Cr at 12%, subject to the 90 day audit. Let Meera renegotiate the Jitan Foods timeline. Later, raise the ₹2 Cr sign-off ceiling to at least ₹5 Cr and give Vayu Swap a board seat.</p></div>
+<p class="big">Speed is a tactic. Integrity is the strategy.</p>
+</div></section>
+
+<footer><div class="wrap"><p><b>Group Assignment 2, Innovation and Entrepreneurship in India.</b> Dr. Quresh Moochhala, Executive MBA 2025-2027, Semester 3, SIMS Pune.</p><p>Jyoti Budhawant (25020448042), Naman Tyagi (25020448058), Siddhant Pradhan (25020448111).</p><p>This page is a short companion to our full deck. All companies and characters are fictional case material. Full references are in the deck.</p></div></footer>
+
+<script>
+(function(){
+var g=document.getElementById('segs'),n='http://www.w3.org/2000/svg';
+for(var i=0;i<15;i++){var r=document.createElementNS(n,'rect');r.setAttribute('x',10+i*22);r.setAttribute('y',14);r.setAttribute('width',18);r.setAttribute('height',52);
+var c='seg';if(i<4)c+=' on';else if(i==4)c+=' half';r.setAttribute('class',c);if(i<5)r.style.animationDelay=(0.3+i*0.25)+'s';if(i==4)r.style.fillOpacity='.5';g.appendChild(r)}
+var b=document.getElementById('bar');
+addEventListener('scroll',function(){var h=document.documentElement;b.style.width=(h.scrollTop/(h.scrollHeight-h.clientHeight)*100)+'%'},{passive:true});
+var io=new IntersectionObserver(function(e){e.forEach(function(x){if(x.isIntersecting){x.target.classList.add('in')}})},{threshold:.4});
+document.querySelectorAll('.track').forEach(function(t){io.observe(t)});
+var rv=document.getElementById('rv'),kn=document.getElementById('kn');
+rv.addEventListener('click',function(){var s=kn.classList.toggle('show');rv.setAttribute('aria-expanded',s);rv.textContent=s?'Hide the gap':'Show what she does not know'});
+var tb=document.querySelectorAll('.tabs button'),pn=document.querySelectorAll('.panel');
+tb.forEach(function(t){t.addEventListener('click',function(){var k=+t.dataset.p;tb.forEach(function(x,i){x.setAttribute('aria-selected',i==k)});pn.forEach(function(p,i){p.classList.toggle('on',i==k)})})});
+})();
+</script>
+</body>
+</html>
